@@ -6,3 +6,11 @@ from app import app
 #faz a rota da pagina
 def index():
 	return "Hello World"
+
+@app.route("/teste", defaults={'nome': None})
+@app.route("/teste/<nome>")
+def teste(nome):
+	if nome:
+		return "Ola, %s!" % nome
+	else:
+		return "Olá, usuário!"

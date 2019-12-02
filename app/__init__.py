@@ -6,7 +6,8 @@ from flask_migrate import Migrate, MigrateCommand
 # importando instância da classe Flask
 
 app = Flask(__name__) #Instancia da classe Flask
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///storage.db'
+app.config.from_object('config')
+
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
